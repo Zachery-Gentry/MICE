@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\container.cpp
+	"container.h"
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\container.h
+	"item.h"
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\item.h
+	<string>
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\item.cpp
+	"item.h"
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\scoop.cpp
+	"scoop.h"
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\scoop.h
+	"item.h"
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\test.cpp
+	"test_item.h"
+	"test_container.h"
+	"test_scoop.h"
+	"test_topping.h"
+	<iostream>
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\test_item.h
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\test_container.h
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\test_scoop.h
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\test_topping.h
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\test_container.cpp
+	"test_container.h"
+	"container.h"
+	<iostream>
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\test_item.cpp
+	"test_item.h"
+	"item.h"
+	<iostream>
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\test_scoop.cpp
+	"test_scoop.h"
+	"scoop.h"
+	<iostream>
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\test_topping.cpp
+	"test_topping.h"
+	"topping.h"
+	<iostream>
+
+1508976946 c:\users\zachery\desktop\c++\mice\micenew\topping.h
+	"item.h"
+
+1508976946 source:c:\users\zachery\desktop\c++\mice\micenew\topping.cpp
+	"topping.h"
+	<stdexcept>
+

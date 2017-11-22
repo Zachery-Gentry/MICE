@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="miceProj" />
+		<Option title="MICE" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/miceProj" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/MICE" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/miceProj" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/MICE" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -34,53 +34,33 @@
 		</Compiler>
 		<Unit filename="../container.cpp" />
 		<Unit filename="../container.h" />
-		<Unit filename="../customer.cpp" />
-		<Unit filename="../customer.h" />
+		<Unit filename="../controller.cpp" />
+		<Unit filename="../controller.h" />
+		<Unit filename="../dialogs.cpp" />
+		<Unit filename="../dialogs.h" />
 		<Unit filename="../emporium.cpp" />
 		<Unit filename="../emporium.h" />
 		<Unit filename="../item.cpp" />
 		<Unit filename="../item.h" />
-		<Unit filename="../main.cpp" />
-		<Unit filename="../mainwin-create_serving.cpp" />
-		<Unit filename="../mainwin-emporiums.cpp" />
-		<Unit filename="../mainwin-on_about_click.cpp" />
-		<Unit filename="../mainwin-on_cancel_order_click.cpp" />
-		<Unit filename="../mainwin-on_create_item_click.cpp" />
-		<Unit filename="../mainwin-on_create_order_click.cpp" />
-		<Unit filename="../mainwin-on_create_person_click.cpp" />
-		<Unit filename="../mainwin-on_easteregg_click.cpp" />
-		<Unit filename="../mainwin-on_fill_order_click.cpp" />
-		<Unit filename="../mainwin-on_pay_for_order_click.cpp" />
-		<Unit filename="../mainwin-select.cpp" />
-		<Unit filename="../mainwin.cpp" />
-		<Unit filename="../mainwin.h" />
-		<Unit filename="../order.cpp" />
-		<Unit filename="../order.h" />
-		<Unit filename="../person.cpp" />
-		<Unit filename="../person.h" />
+		<Unit filename="../main_window.cpp" />
+		<Unit filename="../main_window.h" />
 		<Unit filename="../scoop.cpp" />
 		<Unit filename="../scoop.h" />
-		<Unit filename="../server.cpp" />
-		<Unit filename="../server.h" />
 		<Unit filename="../serving.cpp" />
 		<Unit filename="../serving.h" />
 		<Unit filename="../test.cpp" />
 		<Unit filename="../test_container.cpp" />
 		<Unit filename="../test_container.h" />
-		<Unit filename="../test_customer.cpp" />
-		<Unit filename="../test_customer.h" />
 		<Unit filename="../test_item.cpp" />
 		<Unit filename="../test_item.h" />
-		<Unit filename="../test_person.cpp" />
-		<Unit filename="../test_person.h" />
 		<Unit filename="../test_scoop.cpp" />
 		<Unit filename="../test_scoop.h" />
-		<Unit filename="../test_server.cpp" />
-		<Unit filename="../test_server.h" />
 		<Unit filename="../test_topping.cpp" />
 		<Unit filename="../test_topping.h" />
 		<Unit filename="../topping.cpp" />
 		<Unit filename="../topping.h" />
+		<Unit filename="../view.cpp" />
+		<Unit filename="../view.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
