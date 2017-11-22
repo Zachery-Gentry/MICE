@@ -34,6 +34,8 @@ class Mainwin : public Gtk::Window {
         void on_about_click();                         // Display About dialog
         void on_quit_click();                          // Exit the program
         void on_easteregg_click();                     // TODO: For test only
+        void on_show_servings_server_click();
+        void on_show_servings_customer_click();
     private:
         Gtk::MenuItem *menuitem_new;
         Gtk::MenuItem *menuitem_open;
@@ -47,11 +49,13 @@ class Mainwin : public Gtk::Window {
         Gtk::MenuItem *menuitem_fill_order;
         Gtk::MenuItem *menuitem_pay_for_order;
         Gtk::MenuItem *menuitem_cancel_order;
+        Gtk::MenuItem *menuitem_show_servings_server;
+        Gtk::MenuItem *menuitem_show_servings_customer;
 
         Gtk::ToolButton *new_emporium_button;
         Gtk::ToolButton *create_order_button;
         Gtk::ToolButton *create_item_button;
-        
+
         void create_order();                           // Create a new order
         Mice::Serving create_serving();                // Create a new serving
         int select_container();                        // Select a container index
@@ -61,11 +65,11 @@ class Mainwin : public Gtk::Window {
         int select_order(Mice::Order_state state);     // Select an order index
         int select_server();                           // Select a server index
         int select_from_vector
-            (std::vector<std::string> names, 
+            (std::vector<std::string> names,
              std::string title);                       // Select from a list of strings
         void on_create_person_click(std::string role); // Create a new person
 
         Mice::Emporium* _emp;                          // Currently active emporium
 };
-#endif 
+#endif
 

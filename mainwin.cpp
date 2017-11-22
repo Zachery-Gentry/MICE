@@ -118,6 +118,20 @@ Mainwin::Mainwin() {
     menuitem_cancel_order->signal_activate().connect(sigc::mem_fun(*this, &Mainwin::on_cancel_order_click));
     processmenu->append(*menuitem_cancel_order);
 
+    // V I E W
+    Gtk::MenuItem *menuitem_view = Gtk::manage(new Gtk::MenuItem("_View", true));
+    menubar->append(*menuitem_view);
+    Gtk::Menu *viewmenu = Gtk::manage(new Gtk::Menu());
+    menuitem_view->set_submenu(*viewmenu);
+
+    menuitem_show_servings_server = Gtk::manage(new Gtk::MenuItem("_Show Servings (server)", true));
+    menuitem_show_servings_server->signal_activate().connect(sigc::mem_fun(*this, &Mainwin::on_show_servings_server_click));
+    viewmenu->append(*menuitem_show_servings_server);
+
+    menuitem_show_servings_customer = Gtk::manage(new Gtk::MenuItem("_Show Servings (customer)", true));
+    menuitem_show_servings_customer->signal_activate().connect(sigc::mem_fun(*this, &Mainwin::on_show_servings_customer_click));
+    viewmenu->append(*menuitem_show_servings_customer);
+
     //     R O L E
     // Create a Role menu and add to the menu bar
     Gtk::MenuItem *menuitem_role = Gtk::manage(new Gtk::MenuItem("_Role", true));
@@ -236,6 +250,8 @@ void Mainwin::on_all_click() {
     menuitem_fill_order->set_sensitive(true);
     menuitem_pay_for_order->set_sensitive(true);
     menuitem_cancel_order->set_sensitive(true);
+    menuitem_show_servings_server->set_sensitive(true);
+    menuitem_show_servings_customer->set_sensitive(true);
 
     new_emporium_button->set_sensitive(menuitem_new->get_sensitive());
     create_order_button->set_sensitive(menuitem_order->get_sensitive());
@@ -255,6 +271,8 @@ void Mainwin::on_owner_click() {
     menuitem_fill_order->set_sensitive(true);
     menuitem_pay_for_order->set_sensitive(true);
     menuitem_cancel_order->set_sensitive(true);
+    menuitem_show_servings_server->set_sensitive(true);
+    menuitem_show_servings_customer->set_sensitive(true);
 
     new_emporium_button->set_sensitive(menuitem_new->get_sensitive());
     create_order_button->set_sensitive(menuitem_order->get_sensitive());
@@ -274,6 +292,8 @@ void Mainwin::on_manager_click() {
     menuitem_fill_order->set_sensitive(true);
     menuitem_pay_for_order->set_sensitive(true);
     menuitem_cancel_order->set_sensitive(true);
+    menuitem_show_servings_server->set_sensitive(true);
+    menuitem_show_servings_customer->set_sensitive(true);
 
     new_emporium_button->set_sensitive(menuitem_new->get_sensitive());
     create_order_button->set_sensitive(menuitem_order->get_sensitive());
@@ -293,6 +313,8 @@ void Mainwin::on_server_click() {
     menuitem_fill_order->set_sensitive(true);
     menuitem_pay_for_order->set_sensitive(true);
     menuitem_cancel_order->set_sensitive(true);
+    menuitem_show_servings_server->set_sensitive(true);
+    menuitem_show_servings_customer->set_sensitive(false);
 
     new_emporium_button->set_sensitive(menuitem_new->get_sensitive());
     create_order_button->set_sensitive(menuitem_order->get_sensitive());
@@ -312,9 +334,37 @@ void Mainwin::on_customer_click() {
     menuitem_fill_order->set_sensitive(false);
     menuitem_pay_for_order->set_sensitive(false);
     menuitem_cancel_order->set_sensitive(true);
+    menuitem_show_servings_server->set_sensitive(false);
+    menuitem_show_servings_customer->set_sensitive(true);
 
     new_emporium_button->set_sensitive(menuitem_new->get_sensitive());
     create_order_button->set_sensitive(menuitem_order->get_sensitive());
     create_item_button->set_sensitive(menuitem_item->get_sensitive());
+}
+
+void Mainwin::on_show_servings_server_click(){
+    int orderNum = select_order(Mice::Order_state::Unfilled);
+
+    Mice::Order order = _emp->order(orderNum);
+    std::ostringstream os;
+    os << order << std::endl;
+
+    Gtk::MessageDialog dialog{*this, "Order " + std::to_string(order.id())};
+    dialog.set_secondary_text("<tt>" + os.str() + "</tt>", true);
+    dialog.run();
+    dialog.close();
+}
+
+void Mainwin::on_show_servings_customer_click(){
+    int orderNum = select_order(Mice::Order_state::Unfilled);
+
+    Mice::Order order = _emp->order(orderNum);
+    std::ostringstream os;
+    os << order << std::endl;
+
+    Gtk::MessageDialog dialog{*this, "Order " + std::to_string(order.id())};
+    dialog.set_secondary_text("<tt>" + os.str() + "</tt>", true);
+    dialog.run();
+    dialog.close();
 }
 
