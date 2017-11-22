@@ -1,6 +1,7 @@
 #include "mainwin.h"
 #include <exception>
 #include <stdexcept>
+#include <regex>
 
 void Mainwin::on_create_item_click() {
 
@@ -51,7 +52,7 @@ void Mainwin::on_create_item_click() {
     else dialog.set_title("Create Topping");
     dialog.set_transient_for(*this);
 
-    // Name 
+    // Name
     Gtk::HBox b_name;
 
     Gtk::Label l_name{"Name:"};
@@ -145,9 +146,17 @@ void Mainwin::on_create_item_click() {
             valid_data = false;
         }
         if (type == CONTAINER) {
-            try {
+
+        // REGEX
+        //
+        // R E G E X Regular Expression Data Validation
+            std::regex integer("(\\+|-)?[[:digit:]]+");
+            std::string s = e_max_scoops.get_text();
+
+            if(std::regex_match(s, integer)){
                 i_max_scoops = std::stoi(e_max_scoops.get_text());
-            } catch(std::exception e) {
+            }
+            else{
                 e_max_scoops.set_text("*** invalid max scoops ***");
                 valid_data = false;
             }
@@ -172,7 +181,7 @@ void Mainwin::on_create_item_click() {
             }
         }
     }
-        
+
     // Instance item
     if (type == CONTAINER) {
         _emp->add_container(
@@ -184,6 +193,6 @@ void Mainwin::on_create_item_click() {
         _emp->add_topping(
             Mice::Topping{e_name.get_text(), e_desc.get_text(), d_cost, d_price, 0});
     }
-    
+
     dialog.close();
 }

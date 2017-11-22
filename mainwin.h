@@ -70,6 +70,8 @@ class Mainwin : public Gtk::Window {
         void on_create_person_click(std::string role); // Create a new person
 
         Mice::Emporium* _emp;                          // Currently active emporium
+
+
 };
 #endif
 

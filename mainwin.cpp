@@ -345,6 +345,10 @@ void Mainwin::on_customer_click() {
 void Mainwin::on_show_servings_server_click(){
     int orderNum = select_order(Mice::Order_state::Unfilled);
 
+    if(orderNum < 0){
+        return;
+    }
+
     Mice::Order order = _emp->order(orderNum);
     std::ostringstream os;
     os << order << std::endl;
@@ -356,8 +360,12 @@ void Mainwin::on_show_servings_server_click(){
 }
 
 void Mainwin::on_show_servings_customer_click(){
-    int orderNum = select_order(Mice::Order_state::Unfilled);
+    int orderNum;
+    orderNum = select_order(Mice::Order_state::Unfilled);
 
+    if(orderNum < 0){
+        return;
+    }
     Mice::Order order = _emp->order(orderNum);
     std::ostringstream os;
     os << order << std::endl;
@@ -366,5 +374,11 @@ void Mainwin::on_show_servings_customer_click(){
     dialog.set_secondary_text("<tt>" + os.str() + "</tt>", true);
     dialog.run();
     dialog.close();
+}
+
+template <class T>
+void orderMessage()
+{
+
 }
 
